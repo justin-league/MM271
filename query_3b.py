@@ -5,10 +5,13 @@ import logging
 import csv
 import concurrent.futures
 from queue import Queue
+import sys
 
 logFormatter = '%(asctime)s - %(message)s'
 logging.basicConfig(format=logFormatter, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+username = sys.env.get('USERNAME')
+password = sys.env.get('PASSWORD')
 client = MongoClient("mongodb://%s:%s@mongos.perf.league.dev:27018/" % (username, password))
 database = client["events"]
 collection = database["events"]
