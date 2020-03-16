@@ -9,8 +9,6 @@ from queue import Queue
 logFormatter = '%(asctime)s - %(message)s'
 logging.basicConfig(format=logFormatter, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-username = "admin"
-password = "ytJc5xFCbg"
 client = MongoClient("mongodb://%s:%s@mongos.perf.league.dev:27018/" % (username, password))
 database = client["events"]
 collection = database["events"]
