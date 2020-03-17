@@ -5,13 +5,13 @@ import logging
 import csv
 import concurrent.futures
 from queue import Queue
-import sys
+import os
 
 logFormatter = '%(asctime)s - %(message)s'
 logging.basicConfig(format=logFormatter, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-username = sys.env.get('USERNAME')
-password = sys.env.get('PASSWORD')
+username = os.environ.get('USERNAME')
+password = os.environ.get('PASSWORD')
 client = MongoClient("mongodb://%s:%s@mongos.perf.league.dev:27018/" % (username, password))
 database = client["events"]
 collection = database["events"]
@@ -79,8 +79,8 @@ def thread_function(user):
         },
         {
             "event_timestamp": {
-                "$gte": set_user_profile_timestamp - datetime.timedelta(seconds=1),
-                "$lte": set_user_profile_timestamp + datetime.timedelta(seconds=1)
+                "$gte": set_user_profile_timestamp - datetime.timedelta(seconds=30),
+                "$lte": set_user_profile_timestamp + datetime.timedelta(seconds=30)
             }
         }
     ]
