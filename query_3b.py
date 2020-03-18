@@ -98,7 +98,7 @@ if __name__ == "__main__":
     logger.info("Started script!!!")
 
     users = []
-    with open('result_query_3a.csv', newline='') as inputfile:
+    with open('query_3a.csv', newline='') as inputfile:
         for row in csv.reader(inputfile):
             users.append(row[0])
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
     logger.info("Finished handling requests - writing to file")
 
-    with open('result_query_3b.csv', 'w') as f:
+    with open('query_3b.csv', 'w') as f:
         while usersQueue.qsize():
             f.write(usersQueue.get() + ",\n")
 

@@ -67,7 +67,7 @@ if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor(max_workers=200) as executor:
         executor.map(thread_function, users)
 
-    with open('result_query_3a.csv', 'w') as f:
+    with open('query_3a.csv', 'w') as f:
         while usersQueue.qsize():
             f.write(usersQueue.get() + ",\n")
 
