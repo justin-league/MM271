@@ -27,7 +27,7 @@ def thread_function(user):
     query["$and"] = [
         {
             "event_timestamp": {
-                "$lt": datetime.datetime.strptime("2019-11-29 00:00:00.000000", "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo=FixedOffset(-300, "-0500"))
+                "$lt": datetime.datetime.strptime("2019-11-29 14:53:00.000000", "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo=FixedOffset(-300, "-0500"))
             }
         },
         {

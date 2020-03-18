@@ -36,7 +36,7 @@ def get_set_user_profile_timestamp(user):
         },
         {
             "event_timestamp": {
-                "$gte": datetime.datetime.strptime("2019-11-28 19:00:00.000000", "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo=FixedOffset(-300, "-0500"))
+                "$gte": datetime.datetime.strptime("2019-11-29 14:53:00.000000", "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo=FixedOffset(-300, "-0500"))
             }
         },
         {
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     logger.info("Started script!!!")
 
     users = []
-    with open('query_3a.csv', newline='') as inputfile:
+    with open('result_query_3a.csv', newline='') as inputfile:
         for row in csv.reader(inputfile):
             users.append(row[0])
 
